@@ -1,0 +1,19 @@
+       AREA ADDITION,CODE,READONLY
+       ENTRY
+       MOV R0,#0X40000010
+	   MOV R1,#0X00000012
+       MOV R2,#0X00000015
+	   MOV R3,#0X00000016
+       MOV R4,#0X00000017
+       LSL R6,R4,#24
+	   LSL R7,R3,#16
+	   LSL R8,R2,#8
+	   ORR R9,R6,R7
+	   ORR R10,R8,R1
+	   ORR R5,R10,R9
+L      B L
+       END
+
+
+
+
