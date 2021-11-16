@@ -1,0 +1,24 @@
+       AREA ARRAY,CODE,READONLY
+       ENTRY
+       MOV R1,#0X05
+       SUB R1,R1,#1
+L3     MOV R2,R1
+       MOV R0,#0X40000020
+L1     LDRB R3,[R0]
+       ADD R0,R0,#1
+       LDRB R4,[R0]
+       SUBS R5,R3,R4
+       BCC L2
+       STRB R3,[R0]
+       SUB R0,R0,#1
+       STRB R4,[R0]
+       ADD R0,R0,#1
+L2     SUBS R2,R2,#1
+       BNE L1
+       SUBS R1,R1,#1
+       BNE L3
+       LDRB R8,[R9]
+       MOV R7,#0X40000025
+       STRB R8,[R7]
+L      B L
+       END
